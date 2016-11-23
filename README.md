@@ -17,6 +17,7 @@
 - [16.$parent](https://ollieSk8.github.io/my-vue-tutorials/16.$parent.html)
 - [17.$dispatch](https://ollieSk8.github.io/my-vue-tutorials/17.$dispatch.html)
 - [18.$broadcast](https://ollieSk8.github.io/my-vue-tutorials/18.$broadcast.html)
+
 ## 参考教程地址
 - [项目vue-tutorials作者keepfool博客园](http://www.cnblogs.com/keepfool/category/845804.html)
 - [本项目参考项目地址](https://github.com/keepfool/vue-tutorials)

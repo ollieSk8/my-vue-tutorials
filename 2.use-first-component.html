@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.first-component</title>
+	<link rel="stylesheet" href="./css/demo.css">
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<style>
+		#app1{
+			padding-top:40px;
+			color:green;
+			text-align: center;
+		}
+		#app2{
+			padding-top:40px;
+			color:green;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="app1">
+		<my-component></my-component>
+	</div>
+	<div id="app2">
+		<my-component></my-component>
+	</div>
+	<my-component></my-component>
+	<script type="text/javascript">
+		//创建
+		var myComponent=Vue.extend({
+			template:'<h1>我是一个vue组件</h1>'
+		});
+		//注册
+		Vue.component('my-component',myComponent);
+
+		new Vue({
+			el:'#app1'
+		});
+		new Vue({
+			el:'#app2'
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9.另一个例子searchCar</title>
+		<link rel="stylesheet" href="./css/demo.css">
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <style>
+        h1{
+            width:100%;
+            padding:10px;
+            color:green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>另一个例子searchCar</h1>
+	<div id="app">
+		<div id="searchBar">
+            Search <input type="text" v-model="searchQuery"/>
+        </div>
+        <my-car :car-columns="carColumns" :car-data="carData"  :search-query="searchQuery"></my-car>
+	</div>
+	<template id="car-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="attr in carColumns">{{attr}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="car  in carData | filterBy searchQuery">
+                    <td v-for="attr in carColumns">
+                    	{{car[attr]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+	<script type="text/javascript">
+		//服务器端数据
+		var CarData=[
+			{
+				'品牌':'本田',
+				'创建日期':'1987',
+				'关键字':'好开,节油',
+				'年销量':1400000
+			},
+			{
+				'品牌':'大众',
+				'创建日期':'1867',
+				'关键字':'德系外壳硬,油耗大',
+				'年销量':200000
+			},
+			{
+				'品牌':'兰博基尼',
+				'创建日期':'1877',
+				'关键字':'超跑',
+				'年销量':1000
+			},
+			{
+				'品牌':'法拉利',
+				'创建日期':'1917',
+				'关键字':'超跑,价格昂贵',
+				'年销量':200
+			}
+		];
+
+		Vue.component('my-car',{
+			template:'#car-template',
+			props:{
+				searchQuery:String,
+				carColumns:Array,
+				carData:Array
+			}
+		});
+
+		var carColumns=[];
+		var carSingleData=CarData[0];
+		for(attr in carSingleData){
+			carColumns.push(attr);
+		}
+		new Vue({
+			el:'#app',
+			data:{
+				searchQuery:'',
+				carColumns:carColumns,
+				carData:CarData
+			}
+		});
+	</script>
+</body>
+</html>

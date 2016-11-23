@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17.$dispatch</title>
+	
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<style>
+		.parent{
+			width:300px;
+			height:100px;
+			border:1px solid blue;
+			padding:10px;
+			margin-bottom:10px;
+		}
+		.parent h1{
+			font-size:20px;
+		}
+		.son{
+			width:300px;
+			height:100px;
+			border:1px solid red;
+			padding:10px;
+		}
+		.son h1{
+			font-size:20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>$dispatch实例,子组件向父组件派发事件</h1>
+	<div id="app">
+		<div class="parent">
+			<h1>父组件</h1>
+		    <p>Messages: {{ messages | json }}</p>
+	    </div>
+	    <div class="son">
+	    	<h1>子组件</h1>
+	    	<child-component></child-component>
+	    </div>
+	</div>
+
+	<template id="child-component">
+	    <input v-model="msg" />
+	    <button v-on:click="notify">Dispatch Event</button>
+	</template>
+
+<script>
+    // 注册子组件
+    Vue.component('child-component', {
+        template: '#child-component',
+        data: function() {
+            return {
+                msg: ''
+            }
+        },
+        methods: {
+            notify: function() {
+                if (this.msg.trim()) {
+                    this.$dispatch('child-msg', this.msg)
+                    this.msg = ''
+                }
+            }
+        }
+    })
+
+    // 初始化父组件
+    new Vue({
+        el: '#app',
+        data: {
+            messages: []
+        },
+        events: {
+            'child-msg': function(msg) {
+                this.messages.push(msg)
+            }
+        }
+    })
+</script>
+</body>
+</html>

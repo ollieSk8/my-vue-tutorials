@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5.component注册语法糖</title>
+	<link rel="stylesheet" href="./css/demo.css">
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<style>
+		h1{
+			width:100%;
+			padding:10px;
+			color:green;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="app1">
+		<my-component1></my-component1>
+	</div>
+	<hr>
+	<div id="app2">
+		<my-component1></my-component1>
+		<my-component2></my-component2>
+		<my-component3></my-component3>
+	</div>
+	<script type="text/javascript">
+		//全局
+		Vue.component('my-component1',{
+			template:'<h1>我是第一个组件</h1>'
+		});
+
+		var vm1=new Vue({
+			el:'#app1'
+		});
+
+		var vm2=new Vue({
+			el:'#app2',
+			//局部注册
+			components:{
+				'my-component2':{
+					template:'<h1>我是第二个组件</h1>'
+				},
+				'my-component3':{
+					template:'<h1>我是第三个组件</h1>'
+				}
+			}
+		});
+
+		//Vue.component(argu1,argu2)
+		//argu1 是标签名称
+		//argu2 可以是组件构造器  还可以是 选项对象使用选项对象的template属性定义组件模板。
+	</script>
+</body>
+</html>

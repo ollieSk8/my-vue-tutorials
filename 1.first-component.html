@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.first-component</title>
+	<link rel="stylesheet" href="./css/demo.css">
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<style>
+		#app{
+			padding-top:40px;
+			color:green;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<my-component></my-component>
+	</div>
+	<script type="text/javascript">
+		//创建
+		var myComponent=Vue.extend({
+			template:'<h1>我是第一个vue组件</h1>'
+		});
+		//注册
+		Vue.component('my-component',myComponent);
+
+		new Vue({
+			el:'#app'
+		});
+	</script>
+</body>
+</html>

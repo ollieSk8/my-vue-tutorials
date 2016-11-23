@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6.use-script-or-template-tag</title>
+	<link rel="stylesheet" href="./css/demo.css">
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<style>
+		h1{
+			width:100%;
+			padding:10px;
+			color:green;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="app1">
+		<my-component1></my-component1>
+		<my-component2></my-component2>
+	</div>
+	<div id="app2">
+		<my-component2></my-component2>
+	</div>
+
+	<script type="text/x-template" id="myComponent1">
+		<h1>这里是一个组件,使用script标签创建模板</h1>
+	</script>
+
+	<template id="myComponent2">
+		<h1>这里另一个组件,使用template标签创建模板</h1>
+	</template>
+
+	<script type="text/javascript">
+		Vue.component('my-component1',{
+			template:'#myComponent1'
+		});
+		Vue.component('my-component2',{
+			template:'#myComponent2'
+		});
+		new Vue({
+			el:'#app1'
+		});
+		new Vue({
+			el:'#app2'
+		});
+	</script>
+</body>
+</html>

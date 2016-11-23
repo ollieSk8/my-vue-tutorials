@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11.slot内容分发</title>
+	<link rel="stylesheet" href="./css/demo.css">
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <style>
+        .title{
+            width:100%;
+            padding:10px;
+            color:green;
+            text-align: center;
+        }
+        a{
+        	width:100%;
+            padding:10px;
+            color:green;
+            text-align: center;
+        	display: block;
+        }
+    </style>
+</head>
+<body>
+	<h1 class="title">slot内容分发</h1>
+	<div id="app">
+		<my-component>
+			<h1>hello Vuejs</h1>
+			<h2>vuejs is awsome</h2>
+		</my-component>
+		<hr>
+		<my-component></my-component>
+	</div>
+	<template id="myComponent">
+		<div class="content">
+			<h2>这里是一个组件</h2>
+			<slot>如果没有分发内容，则显示slot中</slot>	
+			<p>说点神马。。。</p>
+		</div>
+	</template>
+	<script type="text/javascript">
+		Vue.component('my-component',{
+			template:'#myComponent'
+		});
+		new Vue({
+			el:'#app'
+		});
+	</script>
+</body>
+</html>

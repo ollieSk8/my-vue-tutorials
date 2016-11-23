@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10.编译作用域</title>
+	<link rel="stylesheet" href="./css/demo.css">
+    <script type="text/javascript" src="./js/vue.js"></script>
+    <style>
+        h1{
+            width:100%;
+            padding:10px;
+            color:green;
+            text-align: center;
+        }
+        a{
+        	width:100%;
+            padding:10px;
+            color:green;
+            text-align: center;
+        	display: block;
+        }
+    </style>
+</head>
+<body>
+	<h1>编译作用域</h1>
+	<a href="http://www.cnblogs.com/keepfool/p/5637834.html"  target="_blank">编译作用域</a>
+	<div id="app">
+		<my-component v-show="display"></my-component>
+	</div>
+	<template id="myComponent">
+		<div>
+			<h2>{{msg}}</h2>
+			<button @click="showMsg">显示消息</button>
+		</div>
+	</template>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				display:true
+			},
+			components:{
+				'my-component':{
+					template:'#myComponent',
+					data:function(){
+						return {
+							msg:'这里是一条评论！',
+							display:false
+						}
+					},
+					methods:{
+						showMsg:function(){
+							alert(this.msg);
+						}
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -17,7 +17,9 @@
 - [16.$parent](https://ollieSk8.github.io/my-vue-tutorials/16.$parent.html)
 - [17.$dispatch](https://ollieSk8.github.io/my-vue-tutorials/17.$dispatch.html)
 - [18.$broadcast](https://ollieSk8.github.io/my-vue-tutorials/18.$broadcast.html)
-
+- [19.curd实例step1](https://ollieSk8.github.io/my-vue-tutorials/19.curd实例-step1.html)
+- [20.curd实例step2](https://ollieSk8.github.io/my-vue-tutorials/20.curd实例-step2.html)
+- [21.curd实例step3](https://ollieSk8.github.io/my-vue-tutorials/21.curd实例-step3.html)
 ## 参考教程地址
 - [项目vue-tutorials作者keepfool博客园](http://www.cnblogs.com/keepfool/category/845804.html)
 - [本项目参考项目地址](https://github.com/keepfool/vue-tutorials)
